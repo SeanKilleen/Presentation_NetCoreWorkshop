@@ -27,7 +27,6 @@ jobs:
         run: |
           npm ci
           npm i puppeteer --no-save
-
       - name: Build Marp slide deck
         working-directory: ./presentation
         run: |
