@@ -14,17 +14,18 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         name: Checkout code
-
       - name: "Install Node"
         uses: actions/setup-node@v3
         with:
-          node-version: 18.x
-
+          node-version: 22.x
+      - uses: browser-actions/setup-chrome@v1
+        name: Install Chrome
+        with:
+          install-chromedriver: true
       - name: Install dependencies and Puppeteer
         working-directory: ./presentation
         run: |
           npm ci
-          sudo apt-get install libgbm-dev
           npm i puppeteer --no-save
 
       - name: Build Marp slide deck
